@@ -1,0 +1,27 @@
+pkgname=hintbot
+pkgver=@VERSION@
+pkgrel=1
+pkgdesc="Telegram reminder bot"
+arch=('x86_64')
+url="https://github.com/@REPO@"
+license=('MIT')
+depends=('glibc' 'systemd')
+source=(
+  'hintbot'
+  'hintbot.env'
+  'hintbot.service'
+  'hintbot.timer'
+)
+sha256sums=(
+  'SKIP'
+  'SKIP'
+  'SKIP'
+  'SKIP'
+)
+
+package() {
+  install -Dm755 hintbot "$pkgdir/usr/bin/hintbot"
+  install -Dm644 hintbot.env "$pkgdir/etc/default/hintbot"
+  install -Dm644 hintbot.service "$pkgdir/usr/lib/systemd/system/hintbot.service"
+  install -Dm644 hintbot.timer "$pkgdir/usr/lib/systemd/system/hintbot.timer"
+}

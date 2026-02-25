@@ -1,0 +1,28 @@
+name: hintbot
+arch: ${NFPM_ARCH}
+platform: linux
+version: ${VERSION}
+section: utils
+priority: optional
+maintainer: hintbot maintainers
+description: Telegram reminder bot
+license: MIT
+
+contents:
+  - src: ./staging/usr/bin/hintbot
+    dst: /usr/bin/hintbot
+    file_info:
+      mode: 0755
+  - src: ./staging/etc/default/hintbot
+    dst: /etc/default/hintbot
+    type: config
+    file_info:
+      mode: 0644
+  - src: ./staging/usr/lib/systemd/system/hintbot.service
+    dst: /usr/lib/systemd/system/hintbot.service
+    file_info:
+      mode: 0644
+  - src: ./staging/usr/lib/systemd/system/hintbot.timer
+    dst: /usr/lib/systemd/system/hintbot.timer
+    file_info:
+      mode: 0644

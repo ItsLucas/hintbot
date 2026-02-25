@@ -1,0 +1,8 @@
+[package]
+name = "hintbot"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+teloxide = { version = "0.14", features = ["macros"] }
+tokio = { version = "1", features = ["rt-multi-thread", "macros"] }
