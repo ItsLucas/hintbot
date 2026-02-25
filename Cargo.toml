@@ -1,8 +1,8 @@
 [package]
 name = "hintbot"
-version = "0.1.0"
+version = "0.2.0"
 edition = "2024"
 
 [dependencies]
-teloxide = { version = "0.14", features = ["macros"] }
+teloxide = { version = "0.14", default-features = false, features = ["macros", "ctrlc_handler", "rustls"] }
 tokio = { version = "1", features = ["rt-multi-thread", "macros"] }
