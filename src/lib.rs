@@ -44,17 +44,6 @@ async fn send_message(env: &Env) -> Result<()> {
     Ok(())
 }
 
-#[event(fetch)]
-pub async fn main(_req: Request, env: Env, _ctx: worker::Context) -> Result<Response> {
-    console_error_panic_hook::set_once();
-
-    match send_message(&env).await {
-        Ok(_) => Response::ok("Message sent"),
-        Err(e) => Response::error(format!("Failed: {:?}", e), 500),
-    }
-}
-
-// 触发方式 2: 定时任务 (Cron)
 #[event(scheduled)]
 pub async fn scheduled(_event: ScheduledEvent, env: Env, _ctx: ScheduleContext) {
     console_error_panic_hook::set_once();
