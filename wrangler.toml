@@ -1,0 +1,12 @@
+name = "hintbot"
+main = "build/worker/shim.mjs"
+compatibility_date = "2024-01-01"
+
+[build]
+command = "cargo install worker-build && worker-build --release"
+
+[vars]
+REMINDER_MSG = "💊 @milkice"
+
+[triggers]
+crons = ["0 4 * * *"]

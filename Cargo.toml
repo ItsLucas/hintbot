@@ -1,8 +1,13 @@
 [package]
 name = "hintbot"
-version = "0.2.0"
+version = "0.1.0"
 edition = "2024"
 
+[lib]
+crate-type = ["cdylib", "rlib"]
+
 [dependencies]
-teloxide = { version = "0.14", default-features = false, features = ["macros", "ctrlc_handler", "rustls"] }
-tokio = { version = "1", features = ["rt-multi-thread", "macros"] }
+console_error_panic_hook = "0.1.7"
+serde = "1.0.228"
+serde_json = "1.0.149"
+worker = "0.7.5"
